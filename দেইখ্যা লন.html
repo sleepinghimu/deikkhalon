@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>দেইখ্যা লন</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,700&family=Instrument+Sans:wght@400;600&family=Noto+Serif+Bengali:wght@400;700&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6f8;--card:#fff;--ink:#14212b;--mute:#5a6b78;--line:#d3dde4;--acc:#0b5d7a;--star:#e09a00;--ok:#1f7a4d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10181e;--card:#17232c;--ink:#e6edf2;--mute:#92a3b0;--line:#2b3c48;--acc:#5cc0e3;--star:#f2b73a;--ok:#5fd199}}
+:root[data-theme="dark"]{--bg:#10181e;--card:#17232c;--ink:#e6edf2;--mute:#92a3b0;--line:#2b3c48;--acc:#5cc0e3;--star:#f2b73a;--ok:#5fd199}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Instrument Sans","Hind Siliguri",system-ui,sans-serif}
+h1,h2,h3,.serif{font-family:Literata,"Noto Serif Bengali",Georgia,serif;line-height:1.25}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.bar{max-width:1000px;margin:auto;padding:12px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.logo{font:700 22px Literata,"Noto Serif Bengali",Georgia,serif;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--acc)}
+#q{flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--acc);background:var(--acc);color:#fff;padding:9px 16px;border-radius:6px;text-decoration:none;display:inline-block}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) button,:root:not([data-theme="light"]) .btn{color:#0a1a22}}
+button.ghost{background:transparent;color:var(--acc)}
+main{max-width:1000px;margin:auto;padding:24px 16px 60px}
+.hero h1{font-size:clamp(28px,5vw,42px);margin:8px 0}
+.hero p{color:var(--mute);max-width:60ch;margin:0 0 18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.chip{background:var(--card);color:var(--ink);border:1px solid var(--line);padding:6px 14px;border-radius:99px}
+.chip[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+.list{display:grid;gap:12px}
+.item{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;text-decoration:none;color:var(--ink)}
+.item:hover{border-color:var(--acc)}
+.ico{width:64px;height:64px;border-radius:8px;display:grid;place-items:center;font-size:32px;background:var(--bg)}
+.item h3{margin:0;font-size:18px}
+.item p{margin:2px 0 0;color:var(--mute);font-size:14px}
+.score{text-align:right;font-weight:600}
+.score small{display:block;color:var(--mute);font-weight:400}
+.stars{color:var(--star);letter-spacing:2px;white-space:nowrap}
+.art{display:grid;grid-template-columns:1fr 280px;gap:28px;align-items:start}
+@media(max-width:760px){.art{grid-template-columns:1fr}aside.box{order:-1}.item{grid-template-columns:48px 1fr}.item .score{grid-column:2;text-align:left}.ico{width:48px;height:48px;font-size:24px}}
+.art h1{font-size:clamp(28px,5vw,38px);margin:4px 0 4px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.art h2{font-size:22px;margin:28px 0 8px}
+.art p{max-width:68ch}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;font-size:14px}
+.ico{overflow:hidden}.ico img{width:100%;height:100%;object-fit:cover;display:block}
+.box .ico{width:100%;height:180px;font-size:56px;margin-bottom:10px}
+.box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}
+.box dt{color:var(--mute)}.box dd{margin:0}
+.verdict{display:flex;gap:16px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.big{font:700 44px Literata,"Noto Serif Bengali",Georgia,serif}
+.bars div{display:grid;grid-template-columns:24px 1fr 28px;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
+.bars i{display:block;height:8px;background:var(--line);border-radius:4px;overflow:hidden}.bars b{display:block;height:100%;background:var(--star)}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;margin:10px 0;max-width:68ch}
+.rev p{margin:6px 0 0}.rev .who{color:var(--mute);font-size:13px}
+form{display:grid;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px;max-width:620px}
+label{display:grid;gap:4px;font-size:14px;color:var(--mute)}
+input,select,textarea{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.empty{padding:30px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:8px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:20px}
+@media(prefers-reduced-motion:no-preference){.art,.list{animation:in .25s ease-out}@keyframes in{from{opacity:.3}to{opacity:1}}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="logo" href="#/">দেইখ্যা <span>লন</span></a>
+<input id="q" type="search" placeholder="Search anything: products, places, books, food" aria-label="Search">
+<a class="btn" href="#/admin">Admin</a>
+<button class="ghost" id="theme" aria-label="Toggle dark mode">Theme</button>
+</div></header>
+<main id="app"></main>
+<footer>Entries are published by the site admin. Signed-in readers can add reviews.</footer>
+
+<script>
+const CATS=["Gadgets","Books","Food","Places","Transport"];
+const SEED=[
+{id:"kindle",title:"Kindle Paperwhite",cat:"Gadgets",icon:"📖",tag:"E-reader with a glare-free screen",
+ facts:{Type:"E-reader",Maker:"Amazon",Display:"E-ink, backlit",Best:"Long reading sessions"},
+ body:"The Kindle Paperwhite is a waterproof e-reader built for reading books. Its e-ink screen looks like paper and stays readable in bright sunlight, and one charge lasts weeks.\n\nIt is not a tablet. It does one thing, reading, and does it well. Browsing and apps are limited.",
+ reviews:[[5,"Rafi","Battery lasts forever and my eyes stop hurting at night."],[4,"Mina","Great screen. Wish page turns were a bit quicker."],[5,"Tom","Took it to the beach. Zero glare."]]},
+{id:"hobbit",title:"The Hobbit",cat:"Books",icon:"🐉",tag:"A short fantasy adventure by J.R.R. Tolkien",
+ facts:{Type:"Novel",Author:"J.R.R. Tolkien",Published:"1937",Genre:"Fantasy"},
+ body:"The Hobbit follows Bilbo Baggins, a homebody pulled into a quest with thirteen dwarves to reclaim a mountain home from a dragon.\n\nIt is lighter in tone than The Lord of the Rings and works well as a first fantasy book for younger or newer readers.",
+ reviews:[[5,"Ayesha","Cozy, funny, and exciting. Read it in two evenings."],[4,"Leo","The pacing wobbles near the end but the dragon scenes are great."]]},
+{id:"padthai",title:"Pad Thai",cat:"Food",icon:"🍜",tag:"Stir-fried rice noodles from Thailand",
+ facts:{Type:"Dish",Origin:"Thailand",Main:"Rice noodles, egg, tamarind",Serve:"Hot, with lime and peanuts"},
+ body:"Pad Thai is a street-food staple: rice noodles stir-fried with egg, tofu or shrimp, bean sprouts and a sweet-sour tamarind sauce, finished with crushed peanuts and lime.\n\nQuality depends on the wok heat and the sauce balance. Good versions are tangy, not sugary.",
+ reviews:[[5,"Nadia","The tamarind tang is what makes it. Squeeze the lime!"],[3,"Chris","Too sweet at the place near me. Depends on the cook."]]},
+{id:"coxs",title:"Cox's Bazar",cat:"Places",icon:"🏖️",tag:"Home of one of the longest natural beaches",
+ facts:{Type:"Beach town",Country:"Bangladesh",Known:"Very long sandy beach",Best:"Nov to Feb"},
+ body:"Cox's Bazar is a coastal town in southeastern Bangladesh known for its long, continuous sandy beach. It is a popular holiday destination and a base for trips to nearby islands and hills.\n\nThe cooler, dry months are the most comfortable time to visit. Weekends and holidays get crowded.",
+ reviews:[[4,"Sabbir","Sunsets are wonderful. Go on a weekday to avoid crowds."],[4,"Lena","Lovely, though the busiest stretch is noisy."]]},
+{id:"metro",title:"Dhaka Metro Rail",cat:"Transport",icon:"🚇",tag:"Elevated urban rail line in Dhaka",
+ facts:{Type:"Rapid transit",City:"Dhaka",Layout:"Elevated",Best:"Avoiding road traffic"},
+ body:"Dhaka Metro Rail is an elevated rapid transit line that lets commuters skip the city's road congestion. Trains are air-conditioned and run to a fixed timetable.\n\nStations can be busy at peak hours, so allow time for security checks and queues.",
+ reviews:[[5,"Tania","A trip that took an hour by road took minutes."],[4,"Imran","Clean and fast. Rush hour queues are long."]]}
+];
+const seedItems=SEED.map(x=>({...x,reviews:x.reviews.map(r=>({s:r[0],n:r[1],t:r[2]}))}));
+let items=[],dbEntries=[],dbReviews=[],db=null,isAdmin=false;
+function rebuild(){
+ items=[...dbEntries.map(e=>({...e,facts:e.facts||{},reviews:[]})),...seedItems.map(x=>({...x,reviews:[...x.reviews]}))];
+ dbReviews.forEach(r=>{const i=items.find(x=>x.id===r.entryId);if(i)i.reviews.unshift(r)});
+}
+rebuild();
+let cat="All",query="";
+const $=s=>document.querySelector(s),app=$("#app");
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const avg=i=>i.reviews.length?i.reviews.reduce((a,r)=>a+r.s,0)/i.reviews.length:0;
+const stars=n=>"★".repeat(Math.round(n))+"☆".repeat(5-Math.round(n));
+const pic=i=>typeof i.img==="string"&&i.img.startsWith("data:image/")?`<img src="${i.img}" alt="${esc(i.title)}">`:`<span aria-hidden="true">${esc(i.icon)}</span>`;
+function toData(file){return new Promise((ok,no)=>{const r=new FileReader();r.onerror=no;r.onload=()=>{const im=new Image();im.onerror=no;im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);let q=.82,d=c.toDataURL("image/jpeg",q);while(d.length>150000&&q>.3){q-=.1;d=c.toDataURL("image/jpeg",q)}d.length>150000?no():ok(d)};im.src=r.result};r.readAsDataURL(file)})}
+const para=t=>t.split("\n\n").map(p=>"<p>"+esc(p)+"</p>").join("");
+
+function home(){
+ const q=query.toLowerCase();
+ const res=items.filter(i=>(cat==="All"||i.cat===cat)&&(!q||(i.title+i.tag+i.body+i.cat).toLowerCase().includes(q)));
+ app.innerHTML=`<section class="hero"><h1>Look up anything. Read what people think.</h1>
+ <p>Every entry has a plain summary, key facts and honest reviews, like an encyclopedia that also tells you if it's worth it.</p></section>
+ <div class="chips" role="group" aria-label="Filter by category">${["All",...CATS].map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("")}</div>
+ <div class="list">${res.map(i=>`<a class="item" href="#/i/${i.id}"><div class="ico">${pic(i)}</div>
+ <div><h3>${esc(i.title)}</h3><p>${esc(i.tag)} · ${esc(i.cat)}</p></div>
+ <div class="score"><span class="stars" aria-hidden="true">${stars(avg(i))}</span><small>${avg(i)?avg(i).toFixed(1)+" from "+i.reviews.length+" reviews":"No reviews yet"}</small></div></a>`).join("")||`<div class="empty">Nothing matches "${esc(query)}".</div>`}</div>`;
+ app.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;home()});
+}
+
+function article(id){
+ const i=items.find(x=>x.id===id);
+ if(!i){app.innerHTML='<div class="empty">Entry not found. <a href="#/">Back to all entries</a></div>';return}
+ const a=avg(i),cnt=[5,4,3,2,1].map(n=>i.reviews.filter(r=>r.s===n).length),mx=Math.max(1,...cnt);
+ app.innerHTML=`<div class="art"><article><a href="#/">All entries</a><h1>${esc(i.title)}</h1>
+ <p class="serif" style="color:var(--mute);margin-top:0">${esc(i.tag)}</p>
+ ${para(i.body)}
+ <h2>Reader reviews</h2>
+ <div class="verdict"><div class="big">${a?a.toFixed(1):"–"}</div><div><div class="stars" aria-label="${a.toFixed(1)} out of 5">${stars(a)}</div><small>${i.reviews.length} reviews</small></div>
+ <div class="bars" style="flex:1;min-width:160px">${[5,4,3,2,1].map((n,k)=>`<div><span>${n}★</span><i><b style="width:${cnt[k]/mx*100}%"></b></i><span>${cnt[k]}</span></div>`).join("")}</div></div>
+ ${i.reviews.map(r=>`<div class="rev"><span class="stars" aria-label="${r.s} out of 5">${stars(r.s)}</span> <span class="who">${esc(r.n)}</span><p>${esc(r.t)}</p>${isAdmin&&r._id?`<button class="ghost" data-rm="${r._id}">Remove review</button>`:""}</div>`).join("")||'<div class="empty">No reviews yet. Be the first to write one.</div>'}
+ <h2>Write a review</h2>
+ ${db?"":'<div class="empty">Reviews can be posted by signed-in readers. Open this page in claude.ai to post one.</div>'}
+ <form id="rf" ${db?"":"hidden"}><label>Rating<select name="s"><option value="5">5 – Excellent</option><option value="4">4 – Good</option><option value="3">3 – Okay</option><option value="2">2 – Poor</option><option value="1">1 – Bad</option></select></label>
+ <label>Your name<input name="n" required maxlength="40"></label>
+ <label>Your review<textarea name="t" rows="3" required maxlength="600"></textarea></label>
+ <button type="submit">Post review</button><span id="rmsg" role="alert"></span></form></article>
+ <aside class="box"><div class="ico">${pic(i)}</div><h3 style="margin:0 0 10px">${esc(i.title)}</h3>
+ <dl>${Object.entries(i.facts).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}<dt>Category</dt><dd>${esc(i.cat)}</dd></dl></aside></div>`;
+ $("#rf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+  const rid="r"+Date.now()+Math.random().toString(36).slice(2,6);
+  db.collection("reviews").doc(rid).set({entryId:id,s:+f.get("s"),n:f.get("n").trim(),t:f.get("t").trim(),ts:Date.now()})
+   .then(()=>e.target.reset()).catch(()=>{$("#rmsg").textContent="Your review could not be saved. You may not have permission to post."});};
+ app.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>db.collection("reviews").doc(b.dataset.rm).delete().catch(()=>{}));
+}
+
+let unlocked=false;
+async function hs(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+async function admin(){
+ if(!isAdmin||!db){app.innerHTML=`<h1>Admin</h1><div class="empty">Only the site admin can add or remove entries.</div>`;return}
+ if(unlocked){adminPanel();return}
+ app.innerHTML="<p>Loading...</p>";
+ let cfg=null;
+ try{const d=await db.collection("config").doc("admin").get();cfg=d.exists?d.data():null}catch(e){}
+ const first=!cfg||!cfg.hash;
+ app.innerHTML=`<h1>Admin</h1><form id="pf"><label>${first?"Create an admin password (at least 8 characters)":"Admin password"}<input type="password" name="p" required ${first?'minlength="8"':""} autocomplete="${first?"new-password":"current-password"}"></label><button type="submit">${first?"Set password":"Unlock admin"}</button><span id="pmsg" role="alert"></span></form>`;
+ $("#pf").onsubmit=async e=>{e.preventDefault();const p=new FormData(e.target).get("p");
+  try{
+   if(first){const salt=[...crypto.getRandomValues(new Uint8Array(16))].map(x=>x.toString(16).padStart(2,"0")).join("");
+    await db.collection("config").doc("admin").set({salt,hash:await hs(salt+p)});unlocked=true;adminPanel()}
+   else if(await hs(cfg.salt+p)===cfg.hash){unlocked=true;adminPanel()}
+   else $("#pmsg").textContent="Wrong password. Try again."
+  }catch(err){$("#pmsg").textContent="Something went wrong. Try again."}};
+}
+function adminPanel(){
+ app.innerHTML=`<h1>Admin</h1><p style="color:var(--mute)">Entries you publish here appear for every visitor. <button class="ghost" id="lock">Lock admin</button></p>
+ <h2>Add an entry</h2><form id="nf"><label>Name<input name="title" required maxlength="80"></label>
+ <label>Category<select name="cat">${CATS.map(c=>`<option>${c}</option>`).join("")}</select></label>
+ <label>One-line description<input name="tag" required maxlength="120"></label>
+ <label>Emoji icon<input name="icon" value="⭐" maxlength="4"></label>
+ <label>Key facts, one per line as Label: value<textarea name="facts" rows="3" placeholder="Origin: Italy"></textarea></label>
+ <label>Photo of the product or service (JPG or PNG, optional)<input type="file" name="img" accept="image/*"></label>
+ <label>Summary<textarea name="body" rows="5" required></textarea></label>
+ <button type="submit">Publish entry</button><span id="amsg" role="alert"></span></form>
+ <h2>Your published entries</h2>${dbEntries.map(e=>`<div class="rev"><b>${esc(e.title)}</b> <span class="who">${esc(e.cat)}</span><br><a href="#/i/${esc(e.id)}">View</a> <button class="ghost" data-del="${esc(e.id)}">Delete</button><label>Replace photo<input type="file" accept="image/*" data-img="${esc(e.id)}"></label></div>`).join("")||'<div class="empty">Nothing yet. The sample entries are built into the page.</div>'}`;
+ app.querySelectorAll("[data-img]").forEach(inp=>inp.onchange=async()=>{if(!inp.files[0])return;try{await db.collection("entries").doc(inp.dataset.img).update({img:await toData(inp.files[0])})}catch(x){alert("That image could not be saved.")}});
+ $("#lock").onclick=()=>{unlocked=false;location.hash="#/"};
+ app.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("Delete this entry?"))db.collection("entries").doc(b.dataset.del).delete().catch(()=>{})});
+ $("#nf").onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),facts={};
+  f.get("facts").split("\n").forEach(l=>{const p=l.split(":");if(p.length>1&&p[0].trim())facts[p[0].trim()]=p.slice(1).join(":").trim()});
+  let img="";const file=f.get("img");if(file&&file.size){try{img=await toData(file)}catch(x){$("#amsg").textContent="That image could not be used. Try a different JPG or PNG.";return}}
+  const t=f.get("title").trim();let id=t.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"entry";
+  while(items.some(x=>x.id===id))id+="-2";
+  db.collection("entries").doc(id).set({title:t,cat:f.get("cat"),icon:f.get("icon")||"⭐",tag:f.get("tag").trim(),facts,body:f.get("body").trim(),img,ts:Date.now()})
+   .then(()=>{location.hash="#/i/"+id}).catch(()=>{$("#amsg").textContent="Could not publish. Your account may not have admin permission."})};
+}
+
+function route(keep){
+ const h=location.hash;
+ if(keep===true){const a=document.activeElement;if(a&&app.contains(a)&&/INPUT|TEXTAREA|SELECT/.test(a.tagName))return}else window.scrollTo(0,0);
+ if(h.startsWith("#/i/"))article(h.slice(4));else if(h==="#/admin"||h==="#/new")admin();else home();
+}
+$("#q").oninput=e=>{query=e.target.value;if(location.hash&&location.hash!=="#/"){location.hash="#/"}else home()};
+$("#theme").onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dark?"light":"dark"};
+addEventListener("hashchange",()=>route());route();
+(async()=>{try{
+ const u=await claude.use("user");isAdmin=u?(await u.canEdit()||await u.isOwner()):false;
+ db=await claude.use("db");
+ if(db){
+  db.collection("entries").onSnapshot(sn=>{dbEntries=sn.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>(b.ts||0)-(a.ts||0));rebuild();route(true)},()=>{});
+  db.collection("reviews").onSnapshot(sn=>{dbReviews=sn.docs.map(d=>({...d.data(),_id:d.id})).sort((a,b)=>(a.ts||0)-(b.ts||0));rebuild();route(true)},()=>{});
+ }
+}catch(e){}route(true)})();
+</script>
+</body>
+</html>
